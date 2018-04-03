@@ -52,10 +52,11 @@ Versions Affected: This vulnerability affects all versions from 0.6.0
 
 Description:
 Malicious user might use any xpath UDFs (xpath/xpath_string/xpath_boolean/xpath_number/xpath_double/xpath_float/xpath_long/xpath_int/xpath_short)
-to expose the content of a file on the machine running HiveServer2 owned by HiveServer2 user (usually hive).
+to expose the content of a file on the machine running HiveServer2 owned by HiveServer2 user (usually hive)
+if hive.server2.enable.doAs=false.
 
 Mitigation:
-Users who use xpath UDFs are recommended to upgrade to 2.3.3, or update UDFXPathUtil.java to the head of branch-2.3 and rebuild hive-exec.jar:
+Users who use xpath UDFs in HiveServer2 and hive.server2.enable.doAs=false are recommended to upgrade to 2.3.3, or update UDFXPathUtil.java to the head of branch-2.3 and rebuild hive-exec.jar:
 https://git1-us-west.apache.org/repos/asf?p=hive.git;a=blob;f=ql/src/java/org/apache/hadoop/hive/ql/udf/xml/UDFXPathUtil.java;hb=refs/heads/branch-2.3
 
 Credit:
